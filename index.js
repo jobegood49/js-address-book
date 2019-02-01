@@ -30,23 +30,40 @@ let contacts = [
     phone: +6285743820777,
   },
 ]
+
 let currentId = 6
+
 let addressBook = {
   displayContacts: contacts => {
     contacts.forEach(contact => console.log(contact))
   },
   addContact: contact => {
+    if (!contact.name || !contact.phone)
+      return console.log('name or phone is missing')
     currentId += 1
     contact.id = currentId
     contacts.push(contact)
+  },
+  searchContact: name => {
+    let foundContact = contacts.filter(contact => {
+      return contact[name] === name
+    })
+    console.log(foundContact)
+    console.log('Details of the person are :', foundContact)
   },
 }
 
 addressBook.displayContacts(contacts)
 
 addressBook.addContact({
-  name: 'toto',
   number: 'toto-number',
 })
 
+addressBook.addContact({
+  name: 'toto',
+  phone: 'toto-number',
+})
+
 addressBook.displayContacts(contacts)
+
+addressBook.searchContact('Jonathan Nicolas')
