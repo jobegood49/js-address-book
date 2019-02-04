@@ -52,7 +52,7 @@ let addressBook = {
     const newContactPhone = document.getElementById('phone-number').value
 
     if (!newContactName || !newContactPhone) {
-      console.log('either name and phone is missing')
+      alert('either name and phone is missing')
     } else {
       currentId += 1
       contacts.push({
@@ -61,8 +61,6 @@ let addressBook = {
         phone: newContactPhone,
       })
       contactList.innerHTML = ''
-
-      console.log('updated contacts', contacts)
 
       addressBook.displayContacts(contacts)
     }
