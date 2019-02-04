@@ -47,7 +47,7 @@ let addressBook = {
   },
 
   addContact: event => {
-    // event.preventDefault()
+    event.preventDefault()
     const newContactName = document.getElementById('full-name').value
     const newContactPhone = document.getElementById('phone-number').value
 
@@ -63,6 +63,8 @@ let addressBook = {
       contactList.innerHTML = ''
 
       console.log('updated contacts', contacts)
+
+      addressBook.displayContacts(contacts)
     }
   },
 
@@ -74,17 +76,4 @@ let addressBook = {
   },
 }
 
-// addressBook.displayContacts(contacts)
-
-// addressBook.addContact({
-//   number: 'toto-number',
-// })
-
-// addressBook.addContact({
-//   name: 'toto',
-//   phone: 'toto-number',
-// })
-
 addressBook.displayContacts(contacts)
-
-addressBook.searchContactByName('Jonathan Nicolas')
