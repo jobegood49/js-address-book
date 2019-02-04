@@ -46,13 +46,23 @@ let addressBook = {
     })
   },
 
-  addContact: contact => {
-    if (!contact.name || !contact.phone) {
+  addContact: event => {
+    // event.preventDefault()
+    const newContactName = document.getElementById('full-name').value
+    const newContactPhone = document.getElementById('phone-number').value
+
+    if (!newContactName || !newContactPhone) {
       console.log('either name and phone is missing')
     } else {
       currentId += 1
-      contact.id = currentId
-      contacts.push(contact)
+      contacts.push({
+        id: currentId,
+        name: newContactName,
+        phone: newContactPhone,
+      })
+      contactList.innerHTML = ''
+
+      console.log('updated contacts', contacts)
     }
   },
 
@@ -66,14 +76,14 @@ let addressBook = {
 
 // addressBook.displayContacts(contacts)
 
-addressBook.addContact({
-  number: 'toto-number',
-})
+// addressBook.addContact({
+//   number: 'toto-number',
+// })
 
-addressBook.addContact({
-  name: 'toto',
-  phone: 'toto-number',
-})
+// addressBook.addContact({
+//   name: 'toto',
+//   phone: 'toto-number',
+// })
 
 addressBook.displayContacts(contacts)
 

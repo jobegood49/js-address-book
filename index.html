@@ -11,11 +11,11 @@
       <h1>Adress Book</h1>
     </div>
 
-    <form action="add-contact-form">
+    <form id="add-contact-form" onsubmit="addressBook.addContact(event)">
       <label for="fullname">Full Name</label>
-      <input type="text" id="fullName" />
+      <input type="text" id="full-name" />
       <label for="phone">Phone Number</label>
-      <input type="text" id="phoneNumber" />
+      <input type="text" id="phone-number" />
       <input type="submit" id="button-add-contact" value="add" />
     </form>
 
